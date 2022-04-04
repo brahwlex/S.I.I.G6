@@ -1,11 +1,12 @@
 package es.uma.proyecto;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.*;
 
 @Entity
-public class Transaccion{
+public class Transaccion/* implements Serializable*/{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name= "ID Único")
@@ -21,6 +22,16 @@ public class Transaccion{
 	private String tipo;//LO PONGO COMO STRING O LO PONEMOS CON NUMEMEROS¿?
 	private float comision;//LO PONGO COMO FLOAT O COMO INT¿?
 	private String internacional;
+	@ManyToOne
+	private Divisa receptor;
+	@ManyToOne
+	private Divisa emisor;
+	@ManyToOne
+	private Cuenta destino;
+	@ManyToOne
+	private Cuenta origen;
+	
+	
 	
 	public Transaccion(int id_unq, Date fechaInstruccion, float cantidad, Date fechaEjecucion, String tipo, float comision, String internacional) {
 		this.id_unq = id_unq;

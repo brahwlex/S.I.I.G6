@@ -1,9 +1,12 @@
 package es.uma.proyecto;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
-public class Divisa{
+public class Divisa/* implements Serializable*/{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String abreviatura;
@@ -12,6 +15,12 @@ public class Divisa{
 	private char simbolo;
 	@Column(name="CambioEuro", nullable=false)
 	private float cambioEuro;
+	@OneToMany(mappedBy="emisor")
+	private List<Transaccion> transaccion_emisor;
+	@OneToMany(mappedBy="receptor")
+	private List<Transaccion> transaccion_receptor;
+	@OneToMany(mappedBy="divisas")
+	private List<Referencia> referencia_divisas;
 	
 	
 	public Divisa(String abreviatura, String nombre, char simbolo, float cambioEuro) {

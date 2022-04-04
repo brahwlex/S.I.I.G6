@@ -12,6 +12,9 @@ public class Referencia extends Cuenta {
 	@Temporal(TemporalType.DATE)
 	private Date fechaApertura;
 	private String estado;
+	@ManyToOne
+	private Divisa divisas;
+	
 	public String getNombreBanco() {
 		return nombreBanco;
 	}
