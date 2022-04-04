@@ -1,5 +1,6 @@
 package es.uma.proyecto;
 
+
 import javax.persistence.*;
 
 @Entity
