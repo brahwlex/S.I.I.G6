@@ -61,8 +61,6 @@ public class Fintech extends Cuenta{
 		this.clasificacion = clasificacion;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Fintech [estado=" + estado + ", fechaApertura=" + fechaApertura + ", fechaCierre=" + fechaCierre
