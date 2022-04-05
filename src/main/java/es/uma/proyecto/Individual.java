@@ -21,17 +21,20 @@ public class Individual extends Cliente{
     @Temporal(TemporalType.DATE)
     private Date Fecha_Nacimiento;
 
-    public Individual(int id, int identificacion, String tipo_Cliente, String estado, String fecha_Alta, String fecha_Baja,
-                      String direccion, int codigo_Postal, String ciudad, String país, String nombre, String apellido,
-                      String contraseña, Date fecha_Nacimiento) {
-        super(id, identificacion, tipo_Cliente, estado, fecha_Alta, fecha_Baja, direccion, codigo_Postal, ciudad, país);
-        Nombre = nombre;
-        Apellido = apellido;
-        Contraseña = contraseña;
-        Fecha_Nacimiento = fecha_Nacimiento;
-    }
 
-    public String getNombre() {
+    public Individual(int id, int identificacion, String tipo_Cliente, String estado, Date fecha_Alta, Date fecha_Baja,
+			String direccion, int codigo_Postal, String ciudad, String país, String nombre, String apellido,
+			String contraseña, Date fecha_Nacimiento) {
+		super(id, identificacion, tipo_Cliente, estado, fecha_Alta, fecha_Baja, direccion, codigo_Postal, ciudad, país);
+		Nombre = nombre;
+		Apellido = apellido;
+		Contraseña = contraseña;
+		Fecha_Nacimiento = fecha_Nacimiento;
+	}
+
+
+
+	public String getNombre() {
         return Nombre;
     }
 
