@@ -1,5 +1,6 @@
 package es.uma.proyecto;
 
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -22,9 +23,9 @@ public class Autorizado extends Usuario{
 	private Date fechaInicio;
 	private Date fechaFin;
 	
-	public Autorizado(long identificacion, String nombre, String apellido, String contraseña, String direccion,
+	public Autorizado(int id, long identificacion, String nombre, String apellido, String contraseña, String direccion,
 			Date fecha_nacimiento, String estado, Date fechaInicio, Date fechaFin) {
-		super();
+		super(id);
 		this.identificacion = identificacion;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -108,16 +109,21 @@ public class Autorizado extends Usuario{
 		this.fechaFin = fechaFin;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(identificacion);
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(identificacion);
+		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -131,12 +137,13 @@ public class Autorizado extends Usuario{
 				+ ", contraseña=" + contraseña + ", direccion=" + direccion + ", fecha_nacimiento=" + fecha_nacimiento
 				+ ", estado=" + estado + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }
+	
+	
+	
+	
+	
+	
+	
+	
+
