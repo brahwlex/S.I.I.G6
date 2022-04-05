@@ -1,11 +1,16 @@
 package es.uma.proyecto;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
 public class Pooled extends Fintech{
+	
+	@OneToMany(mappedBy ="pooled")
+	private List<Depositada_en> depositada_pooled;
+	
 
 	public Pooled() {
 		super();

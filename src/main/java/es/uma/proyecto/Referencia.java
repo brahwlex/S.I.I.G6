@@ -1,5 +1,6 @@
 package es.uma.proyecto;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -16,6 +17,8 @@ public class Referencia extends Cuenta {
 	private String estado;
 	@ManyToOne
 	private Divisa divisas;
+	@OneToMany
+	private List<Depositada_en> depositada_referencia;
 	
 	public String getNombreBanco() {
 		return nombreBanco;
