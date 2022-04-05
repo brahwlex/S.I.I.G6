@@ -61,6 +61,61 @@ public class Divisa/* implements Serializable*/{
 	}
 	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((abreviatura == null) ? 0 : abreviatura.hashCode());
+		result = prime * result + Float.floatToIntBits(cambioEuro);
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((referencia_divisas == null) ? 0 : referencia_divisas.hashCode());
+		result = prime * result + simbolo;
+		result = prime * result + ((transaccion_emisor == null) ? 0 : transaccion_emisor.hashCode());
+		result = prime * result + ((transaccion_receptor == null) ? 0 : transaccion_receptor.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Divisa other = (Divisa) obj;
+		if (abreviatura == null) {
+			if (other.abreviatura != null)
+				return false;
+		} else if (!abreviatura.equals(other.abreviatura))
+			return false;
+		if (Float.floatToIntBits(cambioEuro) != Float.floatToIntBits(other.cambioEuro))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (referencia_divisas == null) {
+			if (other.referencia_divisas != null)
+				return false;
+		} else if (!referencia_divisas.equals(other.referencia_divisas))
+			return false;
+		if (simbolo != other.simbolo)
+			return false;
+		if (transaccion_emisor == null) {
+			if (other.transaccion_emisor != null)
+				return false;
+		} else if (!transaccion_emisor.equals(other.transaccion_emisor))
+			return false;
+		if (transaccion_receptor == null) {
+			if (other.transaccion_receptor != null)
+				return false;
+		} else if (!transaccion_receptor.equals(other.transaccion_receptor))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "abreviatura: "+this.abreviatura+" nombre: "+this.nombre+" simbolo: "+this.simbolo+" cambio_a_euro: "+cambioEuro;
 		

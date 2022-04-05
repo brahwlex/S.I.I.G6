@@ -90,6 +90,80 @@ public class Transaccion/* implements Serializable*/{
 	}
 	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Float.floatToIntBits(cantidad);
+		result = prime * result + Float.floatToIntBits(comision);
+		result = prime * result + ((destino == null) ? 0 : destino.hashCode());
+		result = prime * result + ((emisor == null) ? 0 : emisor.hashCode());
+		result = prime * result + ((fechaEjecucion == null) ? 0 : fechaEjecucion.hashCode());
+		result = prime * result + ((fechaInstruccion == null) ? 0 : fechaInstruccion.hashCode());
+		result = prime * result + id_unq;
+		result = prime * result + ((internacional == null) ? 0 : internacional.hashCode());
+		result = prime * result + ((origen == null) ? 0 : origen.hashCode());
+		result = prime * result + ((receptor == null) ? 0 : receptor.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Transaccion other = (Transaccion) obj;
+		if (Float.floatToIntBits(cantidad) != Float.floatToIntBits(other.cantidad))
+			return false;
+		if (Float.floatToIntBits(comision) != Float.floatToIntBits(other.comision))
+			return false;
+		if (destino == null) {
+			if (other.destino != null)
+				return false;
+		} else if (!destino.equals(other.destino))
+			return false;
+		if (emisor == null) {
+			if (other.emisor != null)
+				return false;
+		} else if (!emisor.equals(other.emisor))
+			return false;
+		if (fechaEjecucion == null) {
+			if (other.fechaEjecucion != null)
+				return false;
+		} else if (!fechaEjecucion.equals(other.fechaEjecucion))
+			return false;
+		if (fechaInstruccion == null) {
+			if (other.fechaInstruccion != null)
+				return false;
+		} else if (!fechaInstruccion.equals(other.fechaInstruccion))
+			return false;
+		if (id_unq != other.id_unq)
+			return false;
+		if (internacional == null) {
+			if (other.internacional != null)
+				return false;
+		} else if (!internacional.equals(other.internacional))
+			return false;
+		if (origen == null) {
+			if (other.origen != null)
+				return false;
+		} else if (!origen.equals(other.origen))
+			return false;
+		if (receptor == null) {
+			if (other.receptor != null)
+				return false;
+		} else if (!receptor.equals(other.receptor))
+			return false;
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
+			return false;
+		return true;
+	}
+	@Override
 	public String toString() {
 		return "ID unico: "+this.id_unq+" fecha_Instruccion: "+this.fechaInstruccion+" cantidad: "+this.cantidad+" fecha_Ejecución: "+this.fechaEjecucion+" tipo: "+this.tipo+" comision: "+this.comision+" internacional: "+this.internacional;
 	}
