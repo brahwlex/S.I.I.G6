@@ -56,5 +56,64 @@ public class Referencia extends Cuenta {
 		return "Referencia [nombreBanco=" + nombreBanco + ", sucursal=" + sucursal + ", pais=" + pais + ", saldo="
 				+ saldo + ", fechaApertura=" + fechaApertura + ", estado=" + estado + "]";
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((divisas == null) ? 0 : divisas.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((fechaApertura == null) ? 0 : fechaApertura.hashCode());
+		result = prime * result + ((nombreBanco == null) ? 0 : nombreBanco.hashCode());
+		result = prime * result + ((pais == null) ? 0 : pais.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(saldo);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((sucursal == null) ? 0 : sucursal.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Referencia other = (Referencia) obj;
+		if (divisas == null) {
+			if (other.divisas != null)
+				return false;
+		} else if (!divisas.equals(other.divisas))
+			return false;
+		if (estado == null) {
+			if (other.estado != null)
+				return false;
+		} else if (!estado.equals(other.estado))
+			return false;
+		if (fechaApertura == null) {
+			if (other.fechaApertura != null)
+				return false;
+		} else if (!fechaApertura.equals(other.fechaApertura))
+			return false;
+		if (nombreBanco == null) {
+			if (other.nombreBanco != null)
+				return false;
+		} else if (!nombreBanco.equals(other.nombreBanco))
+			return false;
+		if (pais == null) {
+			if (other.pais != null)
+				return false;
+		} else if (!pais.equals(other.pais))
+			return false;
+		if (Double.doubleToLongBits(saldo) != Double.doubleToLongBits(other.saldo))
+			return false;
+		if (sucursal == null) {
+			if (other.sucursal != null)
+				return false;
+		} else if (!sucursal.equals(other.sucursal))
+			return false;
+		return true;
+	}
+	
 	
 }
