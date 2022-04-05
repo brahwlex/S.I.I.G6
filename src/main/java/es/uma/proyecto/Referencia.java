@@ -5,9 +5,11 @@ import javax.persistence.*;
 
 @Entity
 public class Referencia extends Cuenta {
+	@Column(nullable = false)
 	private String nombreBanco;
 	private String sucursal;
 	private String pais;
+	@Column(nullable = false)
 	private double saldo;
 	@Temporal(TemporalType.DATE)
 	private Date fechaApertura;
@@ -51,10 +53,13 @@ public class Referencia extends Cuenta {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
 	@Override
 	public String toString() {
 		return "Referencia [nombreBanco=" + nombreBanco + ", sucursal=" + sucursal + ", pais=" + pais + ", saldo="
-				+ saldo + ", fechaApertura=" + fechaApertura + ", estado=" + estado + "]";
+				+ saldo + ", fechaApertura=" + fechaApertura + ", estado=" + estado + ", divisas=" + divisas
+				+ ", getIBAN()=" + getIBAN() + ", getSWIFT()=" + getSWIFT() + ", toString()=" + super.toString()
+				+ ", getClass()=" + getClass() + "]";
 	}
 	@Override
 	public int hashCode() {

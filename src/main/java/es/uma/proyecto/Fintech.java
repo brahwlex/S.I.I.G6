@@ -7,8 +7,9 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Fintech extends Cuenta{
+	@Column(nullable = false)
 	private String estado;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE) @Column(nullable = false)
 	private Date fechaApertura;
 	@Temporal(TemporalType.DATE)
 	private Date fechaCierre;
@@ -16,16 +17,10 @@ public class Fintech extends Cuenta{
 
 	public Fintech() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Fintech(Long iBAN, Long sWIFT) {
-		super(iBAN, sWIFT);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Fintech(String estado, Date fechaApertura, Date fechaCierre, String clasificacion) {
-		super();
+	public Fintech(Long iBAN, Long sWIFT, String estado, Date fechaApertura, Date fechaCierre, String clasificacion) {
+		super(iBAN, sWIFT);		
 		this.estado = estado;
 		this.fechaApertura = fechaApertura;
 		this.fechaCierre = fechaCierre;
@@ -66,10 +61,13 @@ public class Fintech extends Cuenta{
 		this.clasificacion = clasificacion;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Fintech [estado=" + estado + ", fechaApertura=" + fechaApertura + ", fechaCierre=" + fechaCierre
-				+ ", clasificacion=" + clasificacion + "]";
+				+ ", clasificacion=" + clasificacion + ", getIBAN()=" + getIBAN() + ", getSWIFT()=" + getSWIFT()
+				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + "]";
 	}
 
 	@Override
@@ -114,7 +112,6 @@ public class Fintech extends Cuenta{
 			return false;
 		return true;
 	}
-	
 	
 	
 }

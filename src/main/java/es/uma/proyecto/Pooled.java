@@ -11,8 +11,16 @@ public class Pooled extends Fintech{
 		super();
 	}
 
-	public Pooled(String estado, Date fechaApertura, Date fechaCierre, String clasificacion) {
-		super(estado, fechaApertura, fechaCierre, clasificacion);
+	@Override
+	public String toString() {
+		return "Pooled [getEstado()=" + getEstado() + ", getFechaApertura()=" + getFechaApertura()
+				+ ", getFechaCierre()=" + getFechaCierre() + ", getClasificacion()=" + getClasificacion()
+				+ ", toString()=" + super.toString() + ", hashCode()=" + hashCode() + ", getIBAN()=" + getIBAN()
+				+ ", getSWIFT()=" + getSWIFT() + ", getClass()=" + getClass() + "]";
 	}
+
+
+
+	
 
 }

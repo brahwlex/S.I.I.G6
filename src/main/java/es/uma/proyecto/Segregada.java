@@ -12,15 +12,11 @@ public class Segregada extends Fintech{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Segregada(String estado, Date fechaApertura, Date fechaCierre, String clasificacion) {
-		super(estado, fechaApertura, fechaCierre, clasificacion);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Segregada(double comision) {
-		super();
+	public Segregada(Long iBAN, Long sWIFT, String estado, Date fechaApertura, Date fechaCierre, String clasificacion, double comision) {
+		super(iBAN, sWIFT, estado, fechaApertura, fechaCierre, clasificacion);
 		this.comision = comision;
 	}
+
 
 	public double getComision() {
 		return comision;
@@ -30,9 +26,14 @@ public class Segregada extends Fintech{
 		this.comision = comision;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Segregada [comision=" + comision + "]";
+		return "Segregada [comision=" + comision + ", getEstado()=" + getEstado() + ", getFechaApertura()="
+				+ getFechaApertura() + ", getFechaCierre()=" + getFechaCierre() + ", getClasificacion()="
+				+ getClasificacion() + ", toString()=" + super.toString() + ", getIBAN()=" + getIBAN() + ", getSWIFT()="
+				+ getSWIFT() + ", getClass()=" + getClass() + "]";
 	}
 
 	@Override
@@ -58,6 +59,6 @@ public class Segregada extends Fintech{
 			return false;
 		return true;
 	}
-	
-	
+
+
 }
