@@ -1,15 +1,14 @@
 package es.uma.proyecto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
     @Id @GeneratedValue
+    @Column
     private int id;
 
 
@@ -29,14 +28,15 @@ public class Usuario {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Usuario usuario = (Usuario) o;
+
         return id == usuario.id;
     }
 
     @Override
     public int hashCode() {
-        int hash = Objects.hash(id);
-        return hash;
+        return id;
     }
 
     @Override
