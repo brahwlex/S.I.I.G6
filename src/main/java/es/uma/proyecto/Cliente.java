@@ -36,8 +36,8 @@ public class Cliente extends Usuario{
     private String País;
 
 
-    public Cliente(int id, int identificacion, String tipo_Cliente, String estado, String fecha_Alta,
-                   String fecha_Baja, String direccion, int codigo_Postal, String ciudad, String país) {
+    public Cliente(int id, int identificacion, String tipo_Cliente, String estado, Date fecha_Alta,
+                   Date fecha_Baja, String direccion, int codigo_Postal, String ciudad, String país) {
         super(id);
         Identificacion = identificacion;
         Tipo_Cliente = tipo_Cliente;
@@ -62,11 +62,11 @@ public class Cliente extends Usuario{
         return Estado;
     }
 
-    public String getFecha_Alta() {
+    public Date getFecha_Alta() {
         return Fecha_Alta;
     }
 
-    public String getFecha_Baja() {
+    public Date getFecha_Baja() {
         return Fecha_Baja;
     }
 
