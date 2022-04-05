@@ -1,2 +1,4 @@
-package es.uma.proyecto;public class Cliente {
+package es.uma.proyecto;
+
+public class Cliente {
 }

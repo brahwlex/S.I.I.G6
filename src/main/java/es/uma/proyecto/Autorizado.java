@@ -1,2 +1,4 @@
-package es.uma.proyecto;public class Autorizado {
+package es.uma.proyecto;
+
+public class Autorizado {
 }

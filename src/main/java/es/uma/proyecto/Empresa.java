@@ -1,2 +1,4 @@
-package es.uma.proyecto;public class Empresa {
+package es.uma.proyecto;
+
+public class Empresa {
 }

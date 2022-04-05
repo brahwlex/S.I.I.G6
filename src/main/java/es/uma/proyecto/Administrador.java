@@ -1,2 +1,4 @@
-package es.uma.proyecto;public class Administrador {
+package es.uma.proyecto;
+
+public class Administrador {
 }
