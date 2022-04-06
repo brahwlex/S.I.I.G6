@@ -1,6 +1,7 @@
 package es.uma.proyecto;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
@@ -8,6 +9,9 @@ import javax.persistence.*;
 public class Empresa extends Cliente{
 	@Column(nullable=false)
 	private String razon_social;
+	
+	@OneToMany (mappedBy = "empresa")
+	private List<Autorizacion> lista_autorizados;
 
 	public Empresa(int id, int identificacion, String tipo_Cliente, String estado, Date fecha_Alta, Date fecha_Baja,
 			String direccion, int codigo_Postal, String ciudad, String país, String razon_social) {

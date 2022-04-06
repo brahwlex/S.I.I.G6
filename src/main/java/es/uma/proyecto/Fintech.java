@@ -14,7 +14,7 @@ public class Fintech extends Cuenta{
 	@Temporal(TemporalType.DATE)
 	private Date fechaCierre;
 	private String clasificacion;
-	@OneToMany
+	@ManyToOne
 	private Cliente dueño;
 
 	public Fintech() {

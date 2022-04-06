@@ -3,7 +3,7 @@ package es.uma.proyecto;
 
 import java.util.Date;
 import java.util.Objects;
-
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +22,8 @@ public class Autorizado extends Usuario{
 	private String estado;
 	private Date fechaInicio;
 	private Date fechaFin;
+	@OneToMany(mappedBy = "autorizado")
+	private List<Autorizacion> lista_empresas;
 	
 	public Autorizado(int id, long identificacion, String nombre, String apellido, String contraseña, String direccion,
 			Date fecha_nacimiento, String estado, Date fechaInicio, Date fechaFin) {

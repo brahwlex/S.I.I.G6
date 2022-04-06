@@ -2,6 +2,7 @@ package es.uma.proyecto;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -35,6 +36,9 @@ public class Cliente extends Usuario{
 
     @Column(name= "País", nullable = false)
     private String País;
+    
+    @OneToMany (mappedBy = "dueño")
+    private List<Fintech> cuentas_fintech;
     
     
 
