@@ -8,6 +8,7 @@ public class Depositada_en {
 	private float saldo;
 	 @ManyToOne
 	 private Referencia referencia;
+
 	 @ManyToOne
 	 private Pooled pooled;
 	

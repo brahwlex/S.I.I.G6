@@ -2,7 +2,7 @@ package es.uma.proyecto;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Objects;
+
 
 import javax.persistence.*;
 
@@ -29,22 +29,23 @@ public class Empresa extends Cliente{
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(razon_social);
+		result = 31 * result + (razon_social != null ? razon_social.hashCode() : 0);
+		result = 31 * result + (lista_autorizados != null ? lista_autorizados.hashCode() : 0);
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (!super.equals(o)) return false;
+
+		Empresa empresa = (Empresa) o;
+
+		if (razon_social != null ? !razon_social.equals(empresa.razon_social) : empresa.razon_social != null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Empresa other = (Empresa) obj;
-		return Objects.equals(razon_social, other.razon_social);
+		return lista_autorizados != null ? lista_autorizados.equals(empresa.lista_autorizados) : empresa.lista_autorizados == null;
 	}
 
 	@Override
