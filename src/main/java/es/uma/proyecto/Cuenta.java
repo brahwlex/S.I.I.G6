@@ -1,6 +1,6 @@
 package es.uma.proyecto;
 
-
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +10,12 @@ public class Cuenta {
 	@Id @GeneratedValue @Column(nullable = false)
 	private Long IBAN;
 	private Long SWIFT;
+	
+	@OneToMany (mappedBy = "origen")
+	private List<Cuenta> transacciones_orinen;
+	
+	@OneToMany (mappedBy = "destino")
+	private List<Cuenta> transacciones_destino;
 
 	public Cuenta() {
 		super();
