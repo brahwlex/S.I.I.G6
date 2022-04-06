@@ -20,7 +20,11 @@ public class Empresa extends Cliente{
 		this.razon_social = razon_social;
 	}
 
-	public String getRazon_social() {
+		public Empresa() {
+
+		}
+
+		public String getRazon_social() {
 		return razon_social;
 	}
 

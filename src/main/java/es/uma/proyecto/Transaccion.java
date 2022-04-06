@@ -11,12 +11,12 @@ public class Transaccion/* implements Serializable*/{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name= "ID Único")
 	private int id_unq;
-	@Temporal(TemporalType.DATE)
+
 	@Column(name="fechaInstrucción", nullable = false)
 	private Date fechaInstruccion;
 	@Column(name="cantidad", nullable = false)
 	private float cantidad;
-	@Temporal(TemporalType.DATE)
+
 	private Date fechaEjecucion;
 	@Column(name="Tipo", nullable=false)
 	private String tipo;//LO PONGO COMO STRING O LO PONEMOS CON NUMEMEROS¿?

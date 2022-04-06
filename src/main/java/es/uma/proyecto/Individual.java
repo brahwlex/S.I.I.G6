@@ -20,7 +20,7 @@ public class Individual extends Cliente{
     @Column(name= "Contraseña", nullable = false)
     private String Contraseña;
 
-    @Temporal(TemporalType.DATE)
+
     private Date Fecha_Nacimiento;
 
 
@@ -34,9 +34,12 @@ public class Individual extends Cliente{
 		Fecha_Nacimiento = fecha_Nacimiento;
 	}
 
+    public Individual() {
+
+    }
 
 
-	public String getNombre() {
+    public String getNombre() {
         return Nombre;
     }
 

@@ -18,11 +18,16 @@ public class Autorizacion {
 	
 	private String tipo;
 
+
 	public Autorizacion(Empresa empresa, Autorizado autorizado, String tipo) {
 		super();
 		this.empresa = empresa;
 		this.autorizado = autorizado;
 		this.tipo = tipo;
+	}
+
+	public Autorizacion() {
+
 	}
 
 	public Empresa getEmpresa() {

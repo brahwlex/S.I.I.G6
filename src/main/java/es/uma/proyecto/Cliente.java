@@ -19,10 +19,8 @@ public class Cliente extends Usuario{
     private String Estado;
 
     @Column(name= "Fecha_Alta", nullable = false)
-    @Temporal(TemporalType.DATE)
     private Date Fecha_Alta;
 
-    @Temporal(TemporalType.DATE)
     private Date Fecha_Baja;
 
     @Column(name= "Direccion", nullable = false)
@@ -55,6 +53,10 @@ public class Cliente extends Usuario{
         Codigo_Postal = codigo_Postal;
         Ciudad = ciudad;
         País = país;
+    }
+
+    public Cliente() {
+
     }
 
     public int getIdentificacion() {

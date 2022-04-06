@@ -14,10 +14,17 @@ public class Administrador extends Usuario {
     @Column(name= "Contraseña", nullable = false)
     private int Contraseña;
 
-    public Administrador(int id, int identificacion) {
+    public Administrador(int id, int identificacion, int nombre, int contraseña) {
         super(id);
         Identificacion = identificacion;
+        Nombre = nombre;
+        Contraseña = contraseña;
     }
+
+    public Administrador() {
+        super();
+    }
+
 
     public int getIdentificacion() {
         return Identificacion;

@@ -39,6 +39,11 @@ public class Autorizado extends Usuario{
 		this.fechaFin = fechaFin;
 	}
 
+	public Autorizado() {
+
+	}
+
+
 	public long getIdentificacion() {
 		return identificacion;
 	}

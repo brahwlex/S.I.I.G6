@@ -4,14 +4,19 @@ import javax.persistence.*;
 
 @Entity
 public class Depositada_en {
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "REFERENCIA",nullable = false)
+	private Referencia referencia;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "CUENTA",nullable = false)
+	private Pooled pooled;
 
 	@Column(name = "Saldo", nullable = false)
 	private float saldo;
-	 @ManyToOne
-	 private Referencia referencia;
 
-	 @ManyToOne
-	 private Pooled pooled;
+
 	
 	public Depositada_en(float saldo) {
 		this.saldo = saldo;

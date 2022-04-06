@@ -12,10 +12,10 @@ public class Cuenta {
 	private Long SWIFT;
 	
 	@OneToMany (mappedBy = "origen")
-	private List<Cuenta> transacciones_orinen;
+	private List<Transaccion> transacciones_origen;
 	
 	@OneToMany (mappedBy = "destino")
-	private List<Cuenta> transacciones_destino;
+	private List<Transaccion> transacciones_destino;
 
 	public Cuenta() {
 		super();

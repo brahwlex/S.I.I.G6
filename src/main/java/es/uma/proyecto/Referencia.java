@@ -17,7 +17,7 @@ public class Referencia extends Cuenta {
 	private String estado;
 	@ManyToOne
 	private Divisa divisas;
-	@OneToMany
+	@OneToMany(mappedBy = "referencia")
 	private List<Depositada_en> depositada_referencia;
 	
 	public String getNombreBanco() {
