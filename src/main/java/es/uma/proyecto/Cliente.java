@@ -3,6 +3,7 @@ package es.uma.proyecto;
 import javax.persistence.*;
 import java.sql.Date;
 
+
 @Inheritance(strategy = InheritanceType.JOINED)
 
 public class Cliente extends Usuario{
@@ -34,6 +35,8 @@ public class Cliente extends Usuario{
 
     @Column(name= "País", nullable = false)
     private String País;
+    
+    
 
 
     public Cliente(int id, int identificacion, String tipo_Cliente, String estado, Date fecha_Alta,
