@@ -2,6 +2,7 @@ package es.uma.proyecto;
 
 import javax.persistence.*;
 
+@Entity
 public class Depositada_en {
 
 	@Column(name = "Saldo", nullable = false)

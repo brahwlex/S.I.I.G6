@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
-
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 
 public class Cliente extends Usuario{

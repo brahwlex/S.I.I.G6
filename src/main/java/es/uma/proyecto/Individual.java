@@ -1,10 +1,12 @@
 package es.uma.proyecto;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.sql.Date;
 
+@Entity
 public class Individual extends Cliente{
 
 

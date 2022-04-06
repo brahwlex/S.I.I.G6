@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+	@Entity
 public class Empresa extends Cliente{
 	@Column(nullable=false)
 	private String razon_social;
