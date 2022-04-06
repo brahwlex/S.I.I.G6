@@ -5,10 +5,13 @@ import java.util.Objects;
 import javax.persistence.*;
 @Entity
 public class Autorizacion {
+
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "EMPRESA_ID",nullable = false)
 	private Empresa empresa;
-	
+
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "AUTORIZADO_ID", nullable = false)
 	private Autorizado autorizado;
