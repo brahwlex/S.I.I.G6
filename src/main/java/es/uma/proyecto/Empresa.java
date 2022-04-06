@@ -14,17 +14,22 @@ public class Empresa extends Cliente{
 	@OneToMany (mappedBy = "empresa")
 	private List<Autorizacion> lista_autorizados;
 
+	
+
 	public Empresa(int id, int identificacion, String tipo_Cliente, String estado, Date fecha_Alta, Date fecha_Baja,
-			String direccion, int codigo_Postal, String ciudad, String país, String razon_social) {
-		super(id, identificacion, tipo_Cliente, estado, fecha_Alta, fecha_Baja, direccion, codigo_Postal, ciudad, país);
+		String direccion, int codigo_Postal, String ciudad, String país, boolean bloqueado,
+		List<Fintech> cuentas_fintech, String razon_social, List<Autorizacion> lista_autorizados) {
+		super(id, identificacion, tipo_Cliente, estado, fecha_Alta, fecha_Baja, direccion, codigo_Postal, ciudad, país,
+				bloqueado, cuentas_fintech);
 		this.razon_social = razon_social;
+		this.lista_autorizados = lista_autorizados;
 	}
 
-		public Empresa() {
+	public Empresa() {
 
-		}
+	}
 
-		public String getRazon_social() {
+	public String getRazon_social() {
 		return razon_social;
 	}
 
@@ -55,13 +60,15 @@ public class Empresa extends Cliente{
 
 	@Override
 	public String toString() {
-		return "Empresa [razon_social=" + razon_social + ", getIdentificacion()=" + getIdentificacion()
-				+ ", getTipo_Cliente()=" + getTipo_Cliente() + ", getEstado()=" + getEstado() + ", getFecha_Alta()="
-				+ getFecha_Alta() + ", getFecha_Baja()=" + getFecha_Baja() + ", getDireccion()=" + getDireccion()
-				+ ", getCodigo_Postal()=" + getCodigo_Postal() + ", getCiudad()=" + getCiudad() + ", getPaís()="
-				+ getPaís() + ", toString()=" + super.toString() + ", getId()=" + getId() + ", getClass()=" + getClass()
-				+ "]";
+		return "Empresa [razon_social=" + razon_social + ", lista_autorizados=" + lista_autorizados
+				+ ", getIdentificacion()=" + getIdentificacion() + ", getTipo_Cliente()=" + getTipo_Cliente()
+				+ ", getEstado()=" + getEstado() + ", getFecha_Alta()=" + getFecha_Alta() + ", getFecha_Baja()="
+				+ getFecha_Baja() + ", getDireccion()=" + getDireccion() + ", getCodigo_Postal()=" + getCodigo_Postal()
+				+ ", getCiudad()=" + getCiudad() + ", getPaís()=" + getPaís() + ", isBloqueado()=" + isBloqueado()
+				+ ", toString()=" + super.toString() + ", getId()=" + getId() + ", getClass()=" + getClass() + "]";
 	}
+
+	
 	
 	
 }

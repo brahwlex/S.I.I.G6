@@ -22,6 +22,8 @@ public class Autorizado extends Usuario{
 	private String estado;
 	private Date fechaInicio;
 	private Date fechaFin;
+	@Column(nullable=false)
+	private boolean bloqueado;
 	@OneToMany(mappedBy = "autorizado")
 	private List<Autorizacion> lista_empresas;
 	

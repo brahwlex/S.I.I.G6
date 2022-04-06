@@ -3,6 +3,7 @@ package es.uma.proyecto;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -35,27 +36,31 @@ public class Cliente extends Usuario{
     @Column(name= "País", nullable = false)
     private String País;
     
+    @Column (nullable = false)
+    private boolean bloqueado;
+    
     @OneToMany (mappedBy = "dueño")
     private List<Fintech> cuentas_fintech;
     
-    
+ 
+    public Cliente(int id, int identificacion, String tipo_Cliente, String estado, Date fecha_Alta, Date fecha_Baja,
+			String direccion, int codigo_Postal, String ciudad, String país, boolean bloqueado,
+			List<Fintech> cuentas_fintech) {
+		super(id);
+		Identificacion = identificacion;
+		Tipo_Cliente = tipo_Cliente;
+		Estado = estado;
+		Fecha_Alta = fecha_Alta;
+		Fecha_Baja = fecha_Baja;
+		Direccion = direccion;
+		Codigo_Postal = codigo_Postal;
+		Ciudad = ciudad;
+		País = país;
+		this.bloqueado = bloqueado;
+		this.cuentas_fintech = cuentas_fintech;
+	}
 
-
-    public Cliente(int id, int identificacion, String tipo_Cliente, String estado, Date fecha_Alta,
-                   Date fecha_Baja, String direccion, int codigo_Postal, String ciudad, String país) {
-        super(id);
-        Identificacion = identificacion;
-        Tipo_Cliente = tipo_Cliente;
-        Estado = estado;
-        Fecha_Alta = fecha_Alta;
-        Fecha_Baja = fecha_Baja;
-        Direccion = direccion;
-        Codigo_Postal = codigo_Postal;
-        Ciudad = ciudad;
-        País = país;
-    }
-
-    public Cliente() {
+	public Cliente() {
 
     }
 
@@ -95,38 +100,45 @@ public class Cliente extends Usuario{
         return País;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "Identificacion=" + Identificacion +
-                ", Tipo_Cliente='" + Tipo_Cliente + '\'' +
-                ", Estado='" + Estado + '\'' +
-                ", Fecha_Alta='" + Fecha_Alta + '\'' +
-                ", Fecha_Baja='" + Fecha_Baja + '\'' +
-                ", Direccion='" + Direccion + '\'' +
-                ", Codigo_Postal=" + Codigo_Postal +
-                ", Ciudad='" + Ciudad + '\'' +
-                ", País='" + País + '\'' +
-                '}';
-    }
+    public boolean isBloqueado() {
+		return bloqueado;
+	}
+
+	public void setBloqueado(boolean bloqueado) {
+		this.bloqueado = bloqueado;
+	}
+
+	
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+	public String toString() {
+		return "Cliente [Identificacion=" + Identificacion + ", Tipo_Cliente=" + Tipo_Cliente + ", Estado=" + Estado
+				+ ", Fecha_Alta=" + Fecha_Alta + ", Fecha_Baja=" + Fecha_Baja + ", Direccion=" + Direccion
+				+ ", Codigo_Postal=" + Codigo_Postal + ", Ciudad=" + Ciudad + ", País=" + País + ", bloqueado="
+				+ bloqueado + ", cuentas_fintech=" + cuentas_fintech + "]";
+	}
 
-        Cliente cliente = (Cliente) o;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(Identificacion);
+		return result;
+	}
 
-        return Identificacion == cliente.Identificacion;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Identificacion == other.Identificacion;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + Identificacion;
-        return result;
-    }
+
 }
 
 
